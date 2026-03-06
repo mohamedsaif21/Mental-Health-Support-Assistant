@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindCare | Mental Health Support Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="chat-header">
+            <div class="header-content">
+                <div class="bot-info">
+                    <div class="bot-avatar">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="bot-name">
+                        <h1>MindCare</h1>
+                        <p><span class="status-dot"></span> Online & Listening</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button id="clear-chat" title="Clear Conversation"><i class="fas fa-trash-alt"></i></button>
+                </div>
+            </div>
+        </header>
+
+        <main class="chat-area" id="chat-area">
+            <div class="message bot-message">
+                <div class="message-content">
+                    Hello! I'm MindCare, your mental health support assistant. I'm here to listen and offer coping strategies. How are you feeling today?
+                </div>
+                <div class="message-time">Just now</div>
+            </div>
+        </main>
+
+        <footer class="chat-footer">
+            <div class="input-container">
+                <textarea id="user-input" placeholder="Type your feelings here..." rows="1"></textarea>
+                <button id="send-btn" disabled>
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="currentColor" d="M2.01 21L23 12L2.01 3L2 10l15 2l-15 2z"></path>
+                    </svg>
+                </button>
+            </div>
+            <p class="disclaimer">MindCare is an AI assistant and not a replacement for professional therapy. If you're in crisis, please call 988.</p>
+        </footer>
+    </div>
+
+    <div id="emergency-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-content" role="document">
+            <div class="modal-header">
+                <h2>Emergency Support</h2>
+                <button class="modal-close" id="emergency-close" aria-label="Close emergency support dialog">×</button>
+            </div>
+            <p class="modal-body-text">
+                If you feel you may hurt yourself, please seek immediate help. You deserve support.
+            </p>
+            <div id="helpline-list" class="helpline-list"></div>
+            <div class="modal-actions">
+                <button class="modal-primary" id="emergency-ok">I understand</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
